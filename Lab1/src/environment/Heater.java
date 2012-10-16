@@ -4,16 +4,22 @@ public class Heater {
 	
 private double thermostatValue;
 private double thermostatOverheatValue;
-private double heatingFactorPerSqMtr;
+private double heatingFactorPerAreaUnit;
 
 	public Heater(double thermostatValue, double thermostatOverheatValue, double heatingConstant){
 		this.thermostatValue = thermostatValue;
-		this.heatingFactorPerSqMtr = heatingConstant;
+		this.heatingFactorPerAreaUnit = heatingConstant;
 	}
 	
-	public double heatGainPerSqMtr(double roomTemp){
-		if(roomTemp <= thermostatValue + thermostatOverheatValue)
-			return heatingFactorPerSqMtr;
+	public boolean isTurnedOn(double outsideTemp){
+		if(outsideTemp <= thermostatValue + thermostatOverheatValue)
+			return true;
+		return false;
+	}
+	
+	public double heatGainPerAreaUnit(double outsideTemp){
+		if(this.isTurnedOn(outsideTemp))
+			return heatingFactorPerAreaUnit;
 		return 0.0;
 	}
 	
