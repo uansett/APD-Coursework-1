@@ -3,10 +3,18 @@ package environment;
 public class Heater {
 	
 private double thermostatValue;
-private double heatingFactor;
+private double thermostatOverheatValue;
+private double heatingFactorPerSqMtr;
 
-	public Heater(double thermostatValue, double heatingFactor){
+	public Heater(double thermostatValue, double thermostatOverheatValue, double heatingConstant){
 		this.thermostatValue = thermostatValue;
-		this.heatingFactor = heatingFactor;
+		this.heatingFactorPerSqMtr = heatingConstant;
 	}
+	
+	public double heatGainPerSqMtr(double roomTemp){
+		if(roomTemp <= thermostatValue + thermostatOverheatValue)
+			return heatingFactorPerSqMtr;
+		return 0.0;
+	}
+	
 }
