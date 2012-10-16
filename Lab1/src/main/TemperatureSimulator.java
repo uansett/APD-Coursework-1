@@ -18,13 +18,13 @@ public class TemperatureSimulator {
 		
 		double roomTemperature = room1.getTemperature();
 		
-		for(int i=0;i<10;i++){
+		for(int i=0;i<1000;i++){
 			room1.updateTemperature(world.getTemperature());
 			roomTemperature = room1.getTemperature();
 			System.out.println("Temperature is now " + roomTemperature+ " units, and the heater is "+ ((heater1.isTurnedOn(roomTemperature))?"on":"off"));
 			
 			try {
-				Thread.sleep(1000);
+				Thread.sleep(100);
 			} catch (InterruptedException e) {
 				System.out.println("\nThread terminated. Quitting.\n");
 				return;
