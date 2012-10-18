@@ -1,26 +1,30 @@
 package environment;
 
+
 public class Room extends Environment{
-private Heater heater;
-private double leakConstant;
 private double areaInAreaUnits;
+private Environment containerEnvironment;
 
-public Room(Heater heater, double roomAreaInSqMtr, double leakConstant, double temperature){
+public Room(double roomAreaInSqMtr, double leakConstant, double temperature, Environment containerEnvironment){
 	
-	super(temperature);
-	
-	this.heater = heater;
+	super(temperature, leakConstant);
+	this.containerEnvironment = containerEnvironment;
 	this.areaInAreaUnits = roomAreaInSqMtr;
-	this.leakConstant = leakConstant;
 }
 
 
 
-public void updateTemperature(double outsideTemp){
-	this.temperature -= (this.temperature - outsideTemp)*leakConstant;
-	this.temperature += heater.heatGainPerAreaUnit(this.temperature) / this.areaInAreaUnits;
-
+public void decreaseTemperature(){
+	this.temperature -= (this.temperature - containerEnvironment.getTemperature())*leakConstant;
 }
+
+
+public double getArea(){
+	return areaInAreaUnits;
+}
+
+
+
 
 
 
