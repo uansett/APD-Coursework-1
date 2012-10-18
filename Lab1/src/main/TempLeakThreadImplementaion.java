@@ -16,7 +16,7 @@ private int timeInterval;
 				Thread.sleep(timeInterval);
 				room.decreaseTemperature();
 			} catch (InterruptedException e) {
-				System.out.println("Thread aborted");
+				System.out.println("Temperature Leak Thread stopped.");
 			}
 			
 		}

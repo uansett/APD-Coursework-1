@@ -19,7 +19,7 @@ private int timeInterval;
 				Thread.sleep(timeInterval);
 				heater.heatRoom();
 			} catch (InterruptedException e) {
-				System.out.println("Heater thread aborted.");
+				System.out.println("Heater thread stopped.");
 				return;
 			}
 		

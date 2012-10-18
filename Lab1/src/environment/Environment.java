@@ -2,7 +2,7 @@ package environment;
 
 public class Environment {
 protected double temperature;
-protected double leakConstant;
+protected double temperatureLeakConstant;
 
 
 public double getTemperature(){
@@ -10,11 +10,11 @@ public double getTemperature(){
 }
 
 public void decreaseTemperature(){
-	this.temperature -= leakConstant;
+	this.temperature -= temperatureLeakConstant;
 }
 
 public Environment(double temperature, double leakConstant){
 	this.temperature = temperature;
-	this.leakConstant = leakConstant;
+	this.temperatureLeakConstant = leakConstant;
 }
 }

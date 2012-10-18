@@ -15,7 +15,7 @@ public Room(double roomAreaInSqMtr, double leakConstant, double temperature, Env
 
 
 public void decreaseTemperature(){
-	this.temperature -= (this.temperature - containerEnvironment.getTemperature())*leakConstant;
+	this.temperature -= (this.temperature - containerEnvironment.getTemperature())*temperatureLeakConstant;
 }
 
 
